@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
         with:
           go-version: "^1.16.x"
       - name: Add GOPATH to GITHUB_ENV
@@ -18,7 +18,7 @@ jobs:
       - name: Add GOPATH to GITHUB_PATH
         run: echo "$GOPATH/bin" >>"$GITHUB_PATH"
       - name: Run FOSSA scan and upload build data
-        uses: fossa-contrib/fossa-action@v1
+        uses: fossa-contrib/fossa-action@v2
         with:
           # FOSSA Push-Only API Token
           fossa-api-key: 5ee8bf422db1471e0bcf2bcb289185de
