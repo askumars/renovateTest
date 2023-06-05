@@ -10,17 +10,17 @@ jobs:
   unit-testing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: niden/actions-memcached@v7
       - name: Restore Go cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
       - name: Setup Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: 1.17.x
       - name: Run tests
@@ -34,7 +34,7 @@ jobs:
           cp "$(go env GOPATH)/bin/fluxctl" cache/fluxctl
           docker save -o cache/flux-latest.tar fluxcd/flux:latest
       - name: Upload cache
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: cache
           path: cache
@@ -45,24 +45,24 @@ jobs:
       matrix:
         test: ['10_* 11_* 12_*', '13_* 14_*', '15_* 16_* 17_*', '20_* 21_* 22_*']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: engineerd/setup-kind@v0.5.0
         with:
           version: v0.11.1
           image: kindest/node:v1.22.0@sha256:b8bda84bb3a190e6e028b1760d277454a72267a5454b57db34437c34a588d047
       - name: Restore Go cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
       - name: Setup Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: 1.17.x
       - name: Download cache
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: cache
       - name: Load cache
