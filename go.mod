@@ -15,11 +15,11 @@ replace github.com/dgrijalva/jwt-go => github.com/golang-jwt/jwt v3.2.2+incompat
 
 // Pin kubernetes dependencies to 1.21.14
 replace (
-	k8s.io/api => k8s.io/api v0.21.14
-	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.21.14
-	k8s.io/apimachinery => k8s.io/apimachinery v0.21.14
-	k8s.io/client-go => k8s.io/client-go v0.21.14
-	k8s.io/code-generator => k8s.io/code-generator v0.21.14
+	k8s.io/api => k8s.io/api v0.27.2
+	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.27.2
+	k8s.io/apimachinery => k8s.io/apimachinery v0.27.2
+	k8s.io/client-go => k8s.io/client-go v11.0.0+incompatible
+	k8s.io/code-generator => k8s.io/code-generator v0.27.2
 )
 
 // Versions v3.0.0>x>v2.4.0 are susceptible to CVE-2022-28948
@@ -77,9 +77,9 @@ require (
 	golang.org/x/sys v0.0.0-20220825204002-c680a09ffe64
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9
 	gopkg.in/yaml.v2 v2.4.0
-	k8s.io/api v0.21.14
-	k8s.io/apiextensions-apiserver v0.21.14
-	k8s.io/apimachinery v0.21.14
+	k8s.io/api v0.27.2
+	k8s.io/apiextensions-apiserver v0.27.2
+	k8s.io/apimachinery v0.27.2
 	k8s.io/client-go v11.0.0+incompatible
 	k8s.io/klog v1.0.0
 )
